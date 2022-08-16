@@ -53,20 +53,20 @@
 ```
 C:\OpenServer\domains\localhost
 ```
-2. Запустить сервер через Open Server Panel:
-```
-Настройки модулей:
-  · HTTP: Apache_2.4-PHP-8.0-8.1 + Nginx_1.21
-  · PHP: PHP_8.1
-При необходимости задать user и password в connect.php
-```
-3. Запустить скрипт в консоле MySQL, 
+2. Запустить скрипт в консоле MySQL, 
    который создаст базу данных с таблицами:
 ```
 source PATH=.../database.sql
 ```
 *Вместо '...' указать полный путь до файла.
 
+3. Запустить сервер через Open Server Panel:
+```
+Настройки модулей:
+  · HTTP: Apache_2.4-PHP-8.0-8.1 + Nginx_1.21
+  · PHP: PHP_8.1
+При необходимости задать user и password в connect.php
+```
 4. Зайти на сайт:
 ```
 http://localhost/PHP-TEST/
