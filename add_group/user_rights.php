@@ -1,5 +1,5 @@
 <?php
-
+// проверка прав
 if (!$send_messages = isset($_POST['send_messages']))
     $send_messages = 0;
 else

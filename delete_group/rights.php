@@ -1,6 +1,6 @@
 <?php
 
-function set_rights($request, $i, $rows){
+function set_rights($request, $i, $rows){ // проверка приоритетности прав
     if ($request->rights[$i] == 'send_messages' && $rows[$request->rights[$i]]>$request->send_messages)
         $request->send_messages = $rows[$request->rights[$i]];
     if ($request->rights[$i] == 'service_api' && $rows[$request->rights[$i]]>$request->service_api)

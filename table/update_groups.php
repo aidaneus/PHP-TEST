@@ -1,7 +1,7 @@
 <?php
 
 function update_groups($user_id, $connect){
-$request = "SELECT name_group FROM groups_n_users WHERE user_id=$user_id;";
+$request = "SELECT name_group FROM groups_n_users WHERE user_id=$user_id;";  // запрос групп, в которых состоит пользователь
 $query = mysqli_query($connect, $request);
 $rows = array();
 while ($r = mysqli_fetch_assoc($query)){

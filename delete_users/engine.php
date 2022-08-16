@@ -2,11 +2,13 @@
 require_once '../connect.php';
 require_once 'update.php';
 require_once 'rights.php';
+require_once '../style.html';
 
 //получение значений списка
 $groups = $_REQUEST['groups'];
 if (empty($_REQUEST['users'])){ //проверка пользователя в группе
     echo "Пользователь не выбран";
+    echo "<br>";
     echo "<br>";
     echo "<a href=http://localhost/PHP-TEST/delete_users/delete_users.php>вернуться назад</a>";
     return 1;

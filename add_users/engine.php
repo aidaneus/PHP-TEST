@@ -12,8 +12,8 @@ if (empty($_REQUEST['groups'])){ //проверка существования �
     return 1;
 }
 else
-    $groups = $_REQUEST['groups'];
-$users = $_REQUEST['users'];
+    $groups = $_REQUEST['groups'];                                              // получение информации
+$users = $_REQUEST['users'];                                                    // с сервера
 
 if (!check_error($groups))
     return (1);
@@ -22,19 +22,19 @@ $query = mysqli_query($request->connect,"SELECT name_group,user_id
                                         FROM groups_n_users 
                                         WHERE name_group='$groups' 
                                         AND user_id=$users
-                                        GROUP BY name_group,user_id;");
-if (mysqli_num_rows($query) == 0){
+                                        GROUP BY name_group,user_id;");         // запрос имени группы и пользователя
+if (mysqli_num_rows($query) == 0){                                              // есть ли пользователь пользователь в группе
     if ($request->connect->query("INSERT groups_n_users(name_group, user_id) 
                                 VALUES('$groups','$users');") 
-                                === TRUE) {
+                                === TRUE) {                                     // если нет, то добавляется
         echo "Пользователь добавлен!";
         } else {
-        echo "Ошибка: пользователь уже добавлен." . $request->connect->error;
+        echo "Ошибка" . $request->connect->error;
         }
-} else{
+} else{                                                                         // если есть, то выводится ошибка
     echo "Пользователь уже добавлен в группу!";
 }
-
+//добавление прав пользователю
 rights($groups, $request->connect, "send_messages",$users);
 rights($groups, $request->connect, "service_api",$users);
 rights($groups, $request->connect, "debug",$users);

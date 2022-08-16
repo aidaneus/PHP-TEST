@@ -13,8 +13,8 @@ function table($request){
     echo '<td>service_api</td>';
     echo '<td>debug</td>';
     echo '</tr>';
-    $res = mysqli_query($request->connect,"SELECT user_id FROM users;");
-    $right = mysqli_query($request->connect,"SELECT send_messages,service_api,debug FROM users;");
+    $res = mysqli_query($request->connect,"SELECT user_id FROM users;");                                // запрос пользователей
+    $right = mysqli_query($request->connect,"SELECT send_messages,service_api,debug FROM users;");      // запрос прав пользователей
     $rows = array();
     
     while ($r = mysqli_fetch_assoc($right)){
@@ -27,11 +27,11 @@ function table($request){
       $p = 0;
       echo '<tr>';
       echo '<td>',"user_id: ",'</td>';
-      echo '<td>',($row['user_id']),'</td>';
+      echo '<td>',($row['user_id']),'</td>';                                                             // вывод id пользователя
       echo '<td>';
-      update_groups($row['user_id'],$request->connect);
+      update_groups($row['user_id'],$request->connect);                                                  // вывод групп, в которых состоит пользователь
       echo '</td>';
-      while ($p != 3){
+      while ($p != 3){                                                                                   // вывод прав пользователя
         if ($rows[$i][$request->rights[$p]] == 1 )
           echo '<td> <ho style=color:green>',"TRUE",'</td>';
         else if ($rows[$i][$request->rights[$p]] == 2) 

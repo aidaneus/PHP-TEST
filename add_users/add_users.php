@@ -15,12 +15,12 @@ require_once '../style.html'
     <form action = "engine.php" method="post">
     <p><b>Выберите  группу:</b><br>
     <?php
-            groups($request);
+            groups($request);                                       // задаем список групп
     ?>
     <br>
     <p><b>Выберите  пользователя:</b><br>
     <?php
-            user($request);
+            user($request);                                         // задаем список пользователей
     ?>
     <br>
         <p><input type ="submit" value="Добавить">

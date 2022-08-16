@@ -42,16 +42,6 @@ require_once '../style.html'
         </script>
     </head>
     <body>
-    <!-- <style>
-                a {
-                    padding: 2px;
-                    text-decoration: none;
-                }
-                a:hover {
-                    background: #F0F8FF;
-                    color: 	#FF69B4;
-                }
-    </style> -->
     <form action = "engine.php" method="post">
     <p><b>Выберите  группу:</b><br>
     <br>

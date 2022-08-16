@@ -20,10 +20,10 @@ require_once '../style.html'
             return (1);
         }
 
-        $asd = mysqli_query($request->connect,
+        $query = mysqli_query($request->connect,
                             "SELECT name FROM groups WHERE name ='$group';");
 
-        if (mysqli_num_rows($asd) <= 0){
+        if (mysqli_num_rows($query) <= 0){
             if ($request->connect->query("INSERT groups(name, send_messages, service_api, debug) 
                                         VALUES ('$group','$send_messages','$service_api','$debug');") 
                                         === TRUE) {

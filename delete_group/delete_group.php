@@ -14,8 +14,8 @@ require_once '../style.html'
         <form action = "select.php" method="post">
         <p><b>Выберите  группу:</b><br>
         <br>
-        <?php
-        set_groups($request);
+            <?php
+                set_groups($request);
             ?>
         <br>
         <p><input type ="submit" value="Удалить">

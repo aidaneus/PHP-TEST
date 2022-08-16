@@ -18,9 +18,9 @@ require_once '../style.html'
     <p><input type="checkbox" name="service_api"> service_api</p>
     <p><input type="checkbox" name="debug"> debug</p>
     <p><b>Заблокированные права:</b><br>
-    <p><input type="checkbox" name="send_messages_block"> send_messages_block</p>
-    <p><input type="checkbox" name="service_api_block"> service_api_block</p>
-    <p><input type="checkbox" name="debug_block"> debug_block</p>
+    <p><input type="checkbox" name="send_messages_block"> send_messages</p>
+    <p><input type="checkbox" name="service_api_block"> service_api</p>
+    <p><input type="checkbox" name="debug_block"> debug</p>
     <p><input type ="submit" value="Добавить">
     <p><a href="http://localhost/PHP-TEST/">вернуться назад</a></p>
     </body>
