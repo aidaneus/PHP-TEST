@@ -2,7 +2,8 @@
 
 class showUsers{
     public $rights = ['send_messages','service_api','debug'];
-    function show_users($connect) 
+
+    public function show_users($connect) 
     {
         $res = mysqli_query($connect, 
                             "SELECT user_id FROM users");

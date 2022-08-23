@@ -7,10 +7,10 @@ class deleteUsers
     public $debug = 'false';
     public $rights = ['send_messages','service_api','debug'];
     
-    function delete_user($user, $groups, $connect, $delete)
+    public function delete_user($user, $groups, $connect, $delete)
     {
-        $check = mysqli_query($connect,
-                                "SELECT * from groups_n_users WHERE name_group='$groups'AND user_id=$user");
+        $check = mysqli_query($connect, "SELECT * from groups_n_users 
+                                        WHERE name_group='$groups'AND user_id=$user");
         if (mysqli_num_rows($check) <= 0) {                                           //проверка на существование пользователя в группе
             return($ret = '{"status": "fail"}');
         }
@@ -26,7 +26,7 @@ class deleteUsers
         return ($ret);
     }
 
-    function change_rights($connect,$user,$delete)
+    public function change_rights($connect,$user,$delete)
     {
         $querry = mysqli_query($connect,"SELECT * FROM groups_n_users WHERE user_id=$user;");
         while($row = mysqli_fetch_array($querry)) {
@@ -40,13 +40,13 @@ class deleteUsers
                 }
             }
         }
-    // применение прав к user_id
-    $delete->update($delete->send_messages, $connect, "send_messages",$user);
-    $delete->update($delete->service_api, $connect, "service_api",$user);
-    $delete->update($delete->debug, $connect, "debug",$user);
+        // применение прав к user_id
+        $delete->update($delete->send_messages, $connect, "send_messages",$user);
+        $delete->update($delete->service_api, $connect, "service_api",$user);
+        $delete->update($delete->debug, $connect, "debug",$user);
     }
 
-    function check_right($rows, $i, $delete)
+    public function check_right($rows, $i, $delete)
     {
         if ($delete->rights[$i] === 'send_messages' 
             && $rows[$delete->rights[$i]] != $delete->send_messages 
@@ -65,7 +65,7 @@ class deleteUsers
         }
     }
 
-    function update($req,$connect,$num,$user)
+    public function update($req,$connect,$num,$user)
     {
         if ($req == 'false') {
             $connect->query("UPDATE users SET $num='false' WHERE user_id=$user;");

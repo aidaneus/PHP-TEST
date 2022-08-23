@@ -2,10 +2,9 @@
 
 class showGroups
 {
-    function show_groups($connect)
+    public function show_groups($connect)
     {
-        $res = mysqli_query($connect, 
-                            "SELECT name FROM groups");
+        $res = mysqli_query($connect, "SELECT name FROM groups");
         $rows = array();
         $i = 0;
         while ($rows = mysqli_fetch_array($res)) {

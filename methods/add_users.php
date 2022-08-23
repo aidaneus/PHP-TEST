@@ -6,7 +6,7 @@ class addUsers
     public $users;
     public $groups;
 
-    function add_user($users, $groups, $connect, $add)
+    public function add_user($users, $groups, $connect, $add)
     {
         $query = mysqli_query($connect,"SELECT name_group,user_id 
                                         FROM groups_n_users 
@@ -31,11 +31,9 @@ class addUsers
 
     function rights($groups, $connect, $req, $user)
     {
-        $res = mysqli_query($connect, 
-                            "SELECT $req FROM groups WHERE name='$groups'");           // право из группы
+        $res = mysqli_query($connect, "SELECT $req FROM groups WHERE name='$groups'");           // право из группы
         $arr = mysqli_fetch_array($res);
-        $res = mysqli_query($connect, 
-                            "SELECT $req FROM users WHERE user_id=$user");             // право у юзера
+        $res = mysqli_query($connect, "SELECT $req FROM users WHERE user_id=$user");             // право у юзера
         $arr2 = mysqli_fetch_array($res);
         if ($arr[$req] == 'true' && $arr2[$req] != 'block') {                          // если право из гуппы по приоритетности больше, чему у юзера
             $connect->query("UPDATE users SET $req='true' WHERE user_id=$user");       // то апдейтим новое право
