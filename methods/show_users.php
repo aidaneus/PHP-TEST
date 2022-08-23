@@ -12,7 +12,7 @@ class showUsers{
         while ($rows = mysqli_fetch_array($res)) {
             $r = array();
             $users = mysqli_query($connect, 
-                            "SELECT send_messages, service_api, debug FROM users WHERE user_id='$rows[user_id]'");
+                            "SELECT send_messages, service_api, debug FROM users WHERE user_id=$rows[user_id]");
             while ($tmp = mysqli_fetch_array($users)) {
                 array_push($r,$tmp);
             }
