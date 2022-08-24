@@ -9,11 +9,12 @@
         }
     },
     "autoload": {
-        "files": [  "methods/add_users.php",
-                    "methods/delete_users.php",
-                    "methods/show_groups.php",
-                    "methods/show_users.php",
-                    "connect.php",
-                    "db.json"]
-    }
+        "psr-4": {
+            "methods\\": "methods/"
+        }
+    },
+  "require": {
+    "ext-mysqli": "*",
+      "ext-json": "*"
+  }
 }
